@@ -1,0 +1,16 @@
+body{
+    background-image: url('/picture/pink.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* background : blue; */
+    font-size: 1.2em;
+}
+#cont{
+    background: rgba(255,255,255,0.9);
+    border-radius: 0.6em;
+}
+#butt{
+    display: flex;
+    justify-content: center;
+}

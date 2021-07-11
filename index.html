@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel='stylesheet' type='text/css' href='./style/style.css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+ 
+        <title> ATM </title>
+    </head>
+
+    <body>
+        <div class = 'container p-3 my-3' id = 'cont'>  
+            <form>
+                <label for = 'name'>Name</label>
+                <input class = 'inputs' id = 'name' placeholder = 'John Doe'>
+    
+                <hr>
+    
+                <label for = 'number'>Card Number</label>
+                <input class = 'inputs' id = 'number' type = 'number' min = '0'>
+    
+                <hr>
+    
+                <label for = 'mm'>Valid Through</label>
+                <select class = 'inputs' id = 'mm'>
+                    <option disabled selected value>MM</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+                    / <select class = 'inputs' id = 'yy'>
+                        <option disabled selected value>YY</option>
+                        <option>2005</option>
+                        <option>2006</option>
+                        <option>2007</option>
+                        <option>2008</option>
+                        <option>2009</option>
+                        <option>2010</option>
+                        <option>2011</option>
+                        <option>2012</option>
+                        <option>2013</option>
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                    </select>
+                </form>  
+                
+                <hr>
+    
+                <label for = 'cvv'>CVV</label>
+                <input class = 'inputs' id = 'cvv' maxlength = '3'>
+    
+                <hr>
+    
+                <label for = 'type'>Card Type</label>
+                <input class = 'inputs' id = 'type'>
+    
+                <hr>
+
+                <div class = 'container-sm' id = 'butt'>
+
+                    <button id = 'button' class = 'btn btn-primary'>Submit</button>
+                    <div id = 'alert'></div>
+
+                </div>
+                
+            </form>
+        </div>
+        
+
+    </body>
+
+    <script>
+        let Inputs = document.getElementsByTagName('input').value
+        let check = false
+        // let i = 0
+        // let x = 0
+
+        // let Alert = 'Name',name
+       
+        document.getElementById('button').addEventListener('click', e =>{
+            let Name = document.getElementById('name').value
+            let number = document.getElementById('number').value 
+         // let card = document.getElementById('number')       
+            let mm = document.getElementById('mm').value
+            let yy = document.getElementById('yy').value
+            let cvv = document.getElementById('cvv').value
+            let type = document.getElementById('type').value
+            
+            let i = 0
+            let x = 0
+            let card_type = 0
+            let cont = [Name.length, number.length, mm.length, yy.length, type.length, cvv.length]
+            //card number length
+            
+        
+                // if (type != 'mastercard' && type != 'MASTERCARD' && type != 'Mastercard' &&  type != 'VISA' && type != 'visa' && type != 'Visa' && type != 0)
+                // {
+                //     alert('Unrecognized card type!')
+                // }
+                //which is empty
+                document.getElementById('number').style.border = '1px solid black'
+                
+                while ( i < cont.length){
+                    if (cont[i]==0){
+                        x++;
+                    }
+                    i++;
+                }
+
+                //full?
+                if (x != 0){
+                    alert('Please fill all fields')
+
+                }
+                else {
+                    if (number.length > 16 || cvv/1 != cvv){
+                        if (number.length > 16){
+                            document.getElementById('number').style.border = '1px solid red'
+                            alert('Card number cannot exceed 16 digits')
+                        }
+                        if (cvv/1 != cvv){
+                            alert('CVV invalid')
+                        }
+                    }
+                    else{
+                        alert ('Your details\nFull Name: ' + Name +'\nCard Number: '+number+'\nCard expiry date: '+mm+' / '+yy+'\nCard Type: '+type+'\nCVV: '+cvv)
+                    }
+                    
+                }
+            
+                // document.getElementById('number').style.border = '1px solid black'
+            
+        })
+    </script>
+</html>
