@@ -4,13 +4,25 @@ body{
     background-attachment: fixed;
     background-size: cover;
     /* background : blue; */
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 #cont{
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255, 0.95);
     border-radius: 0.6em;
+    border: 1px solid black;
+    margin-top: 5em;
+    height:500px;
 }
 #butt{
     display: flex;
     justify-content: center;
+}
+.inputs{
+    border-radius: 0.3em;
+    margin:1.2em;
+    width:10em;
+    border-color: rgba(222, 199, 135, 0.335);
+}
+#mm, #yy{
+    width:15%;
 }
